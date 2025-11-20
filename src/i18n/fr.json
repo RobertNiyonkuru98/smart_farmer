@@ -1,0 +1,131 @@
+{
+  "nav": {
+    "appName": "Smart Farmer",
+    "home": "Accueil",
+    "prePlanting": "Pré-plantation",
+    "scan": "Scanner Cultures",
+    "postHarvest": "Post-récolte",
+    "weather": "Météo"
+  },
+  "home": {
+    "hero": {
+      "title": "Smart Farmer",
+      "subtitle": "Système de Transformation Intelligente de l'Agriculture au Rwanda",
+      "tagline": "Autonomiser les agriculteurs avec des informations basées sur l'IA"
+    },
+    "featuresTitle": "Nos Fonctionnalités",
+    "features": {
+      "prePlanting": {
+        "title": "Intelligence Pré-plantation",
+        "description": "Obtenez une analyse du sol et des recommandations de cultures basées sur l'IA avant de planter"
+      },
+      "scan": {
+        "title": "Scanner de Santé des Cultures",
+        "description": "Diagnostiquez instantanément les maladies, les ravageurs et les carences nutritionnelles"
+      },
+      "postHarvest": {
+        "title": "Conseiller Post-récolte",
+        "description": "Optimisez le stockage, l'emballage et le transport de votre récolte"
+      },
+      "weather": {
+        "title": "Intelligence Météorologique",
+        "description": "Obtenez des prévisions météorologiques et des recommandations agricoles basées sur les conditions"
+      }
+    },
+    "statsTitle": "Pourquoi Choisir Smart Farmer",
+    "stats": {
+      "availability": "Support IA Disponible",
+      "languages": "Langues Supportées",
+      "powered": "Intelligence Propulsée"
+    }
+  },
+  "prePlanting": {
+    "title": "Conseiller en Intelligence Pré-plantation",
+    "description": "Téléchargez des images de champ ou de sol pour des recommandations de plantation basées sur l'IA",
+    "uploadTitle": "Télécharger une Image de Champ/Sol ou Décrire Votre Situation",
+    "uploadLabel": "Cliquez pour télécharger une image de sol ou de champ",
+    "textInputLabel": "Ou décrivez les conditions de votre champ",
+    "textInputPlaceholder": "Exemple: J'ai un champ de 2 hectares avec un sol argileux dans le district de Musanze. Quelles cultures devrais-je planter?",
+    "analyzeButton": "Obtenir des Recommandations",
+    "confirmationTitle": "Veuillez Confirmer",
+    "resultsTitle": "Recommandations de Plantation"
+  },
+  "scan": {
+    "title": "Scanner de Santé des Cultures",
+    "description": "Prenez une photo de votre culture pour détecter les maladies, les ravageurs et les carences",
+    "uploadTitle": "Télécharger une Image de Culture",
+    "uploadLabel": "Cliquez pour télécharger ou prendre une photo",
+    "analyzeButton": "Analyser la Culture",
+    "confirmationTitle": "Veuillez Confirmer",
+    "resultsTitle": "Résultats du Diagnostic"
+  },
+  "postHarvest": {
+    "title": "Conseiller en Gestion Post-récolte",
+    "description": "Obtenez des conseils d'experts sur le stockage, l'emballage et le transport",
+    "cropLabel": "Type de Culture",
+    "cropPlaceholder": "par ex., Café, Maïs, Pommes de terre irlandaises",
+    "quantityLabel": "Quantité",
+    "quantityPlaceholder": "par ex., 500 kg, 10 sacs",
+    "originLabel": "Lieu d'Origine",
+    "originPlaceholder": "par ex., District de Musanze",
+    "destinationLabel": "Destination",
+    "destinationPlaceholder": "par ex., Marché de Kigali",
+    "additionalInfoLabel": "Informations Supplémentaires",
+    "additionalInfoPlaceholder": "Des exigences ou préoccupations particulières?",
+    "submitButton": "Obtenir des Recommandations",
+    "confirmationTitle": "Veuillez Confirmer",
+    "resultsTitle": "Recommandations Post-récolte"
+  },
+  "weather": {
+    "title": "Conseiller Quotidien Basé sur la Météo",
+    "description": "Obtenez des prévisions météorologiques et des recommandations d'actions agricoles",
+    "locationPlaceholder": "Entrez l'emplacement (par ex., Kigali)",
+    "searchButton": "Obtenir la Météo",
+    "currentTitle": "Météo Actuelle",
+    "forecastTitle": "Prévisions sur 7 Jours",
+    "recommendationsTitle": "Recommandations Agricoles",
+    "humidity": "Humidité",
+    "wind": "Vitesse du Vent"
+  },
+  "chatbot": {
+    "title": "Assistant Smart Farmer",
+    "inputPlaceholder": "Demandez-moi n'importe quoi sur l'agriculture..."
+  },
+  "footer": {
+    "about": {
+      "title": "À Propos de Smart Farmer",
+      "description": "Système de conseil agricole basé sur l'IA aidant les agriculteurs rwandais à prendre des décisions éclairées pour de meilleurs rendements et une agriculture durable."
+    },
+    "features": {
+      "title": "Fonctionnalités",
+      "list": [
+        "Analyse du sol avant plantation",
+        "Détection des maladies des cultures",
+        "Conseils post-récolte",
+        "Recommandations basées sur la météo"
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "email": "Email: info@smartfarmer.rw",
+      "phone": "Téléphone: +250 788 000 000"
+    },
+    "madeWith": "Fait avec",
+    "forFarmers": "pour les agriculteurs rwandais",
+    "rights": "Tous droits réservés"
+  },
+  "common": {
+    "yes": "Oui",
+    "no": "Non",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "save": "Sauvegarder",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "back": "Retour",
+    "next": "Suivant"
+  }
+}

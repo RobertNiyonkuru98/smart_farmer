@@ -1,65 +1,117 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
+import { Sprout, Scan, Package, CloudRain } from "lucide-react";
+import FeatureCard from "@/components/featurecard";
+import { loadTranslations } from "@/lib/i18n";
+import type { Language } from "@/types";
 
 export default function Home() {
+  const [translations, setTranslations] = useState<any>(null);
+  const [language, setLanguage] = useState<Language>("en");
+
+  useEffect(() => {
+    const savedLang = (localStorage.getItem("language") as Language) || "en";
+    setLanguage(savedLang);
+    loadTranslations(savedLang).then(setTranslations);
+  }, []);
+
+  useEffect(() => {
+    const handler = ((e: CustomEvent) => {
+      setLanguage(e.detail);
+      loadTranslations(e.detail).then(setTranslations);
+    }) as EventListener;
+
+    window.addEventListener("languageChange", handler);
+    return () => window.removeEventListener("languageChange", handler);
+  }, []);
+
+  if (!translations) return null;
+
+  const features = [
+    {
+      title: translations.home.features.prePlanting.title,
+      description: translations.home.features.prePlanting.description,
+      icon: Sprout,
+      href: "/pre-planting",
+      color: "rwanda-green",
+    },
+    {
+      title: translations.home.features.scan.title,
+      description: translations.home.features.scan.description,
+      icon: Scan,
+      href: "/scan",
+      color: "rwanda-blue",
+    },
+    {
+      title: translations.home.features.postHarvest.title,
+      description: translations.home.features.postHarvest.description,
+      icon: Package,
+      href: "/post-harvest",
+      color: "rwanda-yellow",
+    },
+    {
+      title: translations.home.features.weather.title,
+      description: translations.home.features.weather.description,
+      icon: CloudRain,
+      href: "/weather-advisor",
+      color: "rwanda-blue",
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="container mx-auto px-4 py-12">
+      {/* Hero Section */}
+      <section className="text-center mb-16 animate-fadeIn">
+        <div className="bg-linear-to-r from-rwanda-blue to-rwanda-green text-white py-16 px-8 rounded-xl shadow-2xl">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            {translations.home.hero.title}
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl mb-2 opacity-95">
+            {translations.home.hero.subtitle}
           </p>
+          <p className="text-lg opacity-90">{translations.home.hero.tagline}</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Features Grid */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold text-center mb-12 text-rwanda-blue dark:text-rwanda-yellow">
+          {translations.home.featuresTitle}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
+          ))}
         </div>
-      </main>
+      </section>
+
+      {/* Quick Stats */}
+      <section className="bg-light-surface dark:bg-dark-surface rounded-xl p-8 shadow-lg">
+        <h2 className="text-2xl font-bold text-center mb-8 text-rwanda-green">
+          {translations.home.statsTitle}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div className="text-4xl font-bold text-rwanda-blue mb-2">24/7</div>
+            <div className="text-gray-600 dark:text-gray-400">
+              {translations.home.stats.availability}
+            </div>
+          </div>
+          <div>
+            <div className="text-4xl font-bold text-rwanda-green mb-2">3+</div>
+            <div className="text-gray-600 dark:text-gray-400">
+              {translations.home.stats.languages}
+            </div>
+          </div>
+          <div>
+            <div className="text-4xl font-bold text-rwanda-yellow mb-2">AI</div>
+            <div className="text-gray-600 dark:text-gray-400">
+              {translations.home.stats.powered}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
